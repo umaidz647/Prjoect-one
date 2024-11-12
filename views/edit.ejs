@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Review</title>
+</head>
+<body>
+    <h1>Edit Review for <%= review.movieName %></h1>
+    <form action="/edit/<%= review._id %>" method="POST">
+        <label for="movieName">Movie Name:</label>
+        <input type="text" id="movieName" name="movieName" value="<%= review.movieName %>" required><br>
+
+        <label for="releaseDate">Release Date:</label>
+        <input type="date" id="releaseDate" name="releaseDate" value="<%= new Date(review.releaseDate).toISOString().split('T')[0] %>" required><br>
+
+        <label for="reviewText">Review:</label><br>
+        <textarea id="reviewText" name="reviewText" rows="4" required><%= review.reviewText %></textarea><br>
+
+        <button type="submit">Update Review</button>
+    </form>
+    <br>
+    <a href="/">Back to Reviews</a>
+</body>
+</html>

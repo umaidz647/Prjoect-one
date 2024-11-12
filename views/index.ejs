@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>U&P Movie Reviews</title>
+</head>
+<body>
+    <header>
+        <h1>U&P Movie Reviews</h1> 
+        <img src="U&P.jpg">
+    </header>
+    <a href="/add">Add a new review</a>
+    <ul>
+        <% reviews.forEach(review => { %>
+            <li>
+                <h2><%= review.movieName %></h2>
+                <p><strong>Release Date:</strong> <%= new Date(review.releaseDate).toLocaleDateString() %></p>
+                <p><%= review.reviewText %></p>
+                <a href="/edit/<%= review._id %>">Edit</a> | 
+                <a href="/delete/<%= review._id %>">Delete</a>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
