@@ -10,6 +10,7 @@ const port = 3000;
 // Set up view engine (EJS)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(express.static('assets'));
 
 // Use body-parser middleware to handle form data
 app.use(bodyParser.urlencoded({ extended: true }));
